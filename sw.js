@@ -1,9 +1,11 @@
 
-const CACHE = 'duck-stamp-scrapbook-v5';
+const CACHE = 'duck-stamp-vault-v5.0.1';
 const ASSETS = [
   './',
   './index.html',
   './manifest.webmanifest',
+  './sw.js',
+  './catalog.json',
   './icons/icon-192.png',
   './icons/icon-512.png'
 ];

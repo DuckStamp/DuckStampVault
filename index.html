@@ -598,5 +598,14 @@ if (matchMedia('(max-width: 820px)').matches && localStorage.getItem('startOnMen
 }
 })();
   </script>
+
+  <script>
+    // Splash safety fallback: hide no matter what after 1500ms
+    (function(){
+      const s = document.getElementById('splash');
+      if (!s) return;
+      setTimeout(()=>{ s.style.opacity='0'; setTimeout(()=> s.style.display='none', 350); }, 1500);
+    })();
+  </script>
 </body>
 </html>
