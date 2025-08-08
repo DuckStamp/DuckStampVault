@@ -122,6 +122,27 @@
       <button class="icon-btn" onclick="openBuyPanel()" title="Where to buy">🛒</button>
     </div>
 
+    
+<!-- Home Menu -->
+<section id="homeMenu" class="card" style="margin-bottom:16px">
+  <header style="display:flex; align-items:center; gap:12px; margin-bottom:10px">
+    <div style="font-size:26px">🦆</div>
+    <div style="font-weight:800; font-size:22px">Duck Stamp Vault</div>
+    <span class="chip">Home</span>
+  </header>
+  <div class="totals" style="margin-top:-4px; margin-bottom:10px">Welcome! Choose an option to get started.</div>
+  <div class="row cols-3" style="gap:14px">
+    <button class="btn" style="height:56px; font-size:16px" onclick="goToSection('collection')">🗂️ View my Collection</button>
+    <button class="btn" style="height:56px; font-size:16px" onclick="goToSection('new')">➕ Add a stamp</button>
+    <button class="btn" style="height:56px; font-size:16px" onclick="goToSection('stats')">💹 Value my Collection</button>
+  </div>
+  <div class="row cols-3" style="gap:14px; margin-top:10px">
+    <button class="btn secondary" style="height:48px" onclick="openBuyPanel()">🛒 Where to buy</button>
+    <button class="btn secondary" style="height:48px" onclick="exportJSON()">⬇️ Export</button>
+    <button class="btn secondary" style="height:48px" onclick="openSettings()">⚙️ Settings</button>
+  </div>
+</section>
+
     <div class="grid cols-3">
       <div class="grid" style="gap:16px">
         <section class="card">
@@ -280,8 +301,17 @@
   </div>
 </dialog>
 
-</div>
-  </div>
+
+  <!-- First-run onboarding -->
+  <dialog id="firstRunDialog" class="card" style="max-width:640px; width:92vw">
+    <h2>Welcome to Duck Stamp Vault</h2>
+    <p class="totals">Looks like this is your first time here. Get started by adding your first stamp, or try a sample entry.</p>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end">
+      <button class="btn secondary" onclick="addSampleStamp()">Add a sample</button>
+      <button class="btn" onclick="goToSection('new')">➕ Add my first stamp</button>
+    </div>
+  </dialog>
+
 
   <dialog id="buyDialog" class="card" style="max-width:640px">
     <h2>Where to buy</h2>
@@ -429,7 +459,9 @@ function about(){ alert('Duck Stamp Vault\\nOffline-first PWA for tracking your 
         scott:(byId('scott').value||'').trim(), platePos:(byId('platePos').value||'').trim(),
         notes:(byId('notes').value||'').trim() };
       const file=fileIn.files[0]; if(!editingId && !file) return toast("Please add an image."); if(file) data.imageId=await storeImage(file);
-      await put('stamps', data); editingId=null; byId('submitBtn').textContent='Add'; resetForm(); renderGallery(); renderChart(); toast('Saved ✅');
+      await put('stamps', data); editingId=null; byId('submitBtn').textContent='Add'; resetForm(); renderGallery(); renderChart();
+      // If first run (no stamps), show onboarding
+      getAll('stamps').then(list => { if (!list || list.length === 0) { byId('firstRunDialog')?.showModal(); } }); toast('Saved ✅');
     }
     function resetForm(){ for (const id of ['img','year','faceValue','price','estValue','purchaseDate','condition','signatureType','acq','artist','species','scott','platePos','notes']){ const el=byId(id); if(!el) continue; el.value=''; }
       preview.innerHTML=''; editingId=null; byId('submitBtn').textContent='Add'; }
@@ -439,13 +471,17 @@ function about(){ alert('Duck Stamp Vault\\nOffline-first PWA for tracking your 
       byId('artist').value=s.artist||''; byId('species').value=s.species||''; byId('scott').value=s.scott||''; byId('platePos').value=s.platePos||''; byId('notes').value=s.notes||'';
       byId('submitBtn').textContent='Save Changes'; window.scrollTo({ top:0, behavior:'smooth' }); }
     async function deleteStamp(id){ if(!confirm("Remove this stamp from your scrapbook?")) return; const s=await get('stamps', id); if(s?.imageId) await del('images', s.imageId);
-      await del('stamps', id); renderGallery(); renderChart(); toast('Deleted 🗑️'); }
+      await del('stamps', id); renderGallery(); renderChart();
+      // If first run (no stamps), show onboarding
+      getAll('stamps').then(list => { if (!list || list.length === 0) { byId('firstRunDialog')?.showModal(); } }); toast('Deleted 🗑️'); }
 
     // Export / Import
     async function exportJSON(){ const stamps=await getAll('stamps'); const blob=new Blob([JSON.stringify(stamps,null,2)],{type:'application/json'});
       const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='duck-stamp-scrapbook.json'; a.click(); URL.revokeObjectURL(a.href); }
     async function importJSON(evt){ const file=evt.target.files?.[0]; if(!file) return; try { const data=JSON.parse(await file.text()); if(!Array.isArray(data)) throw new Error('Invalid format');
         for(const s of data) await put('stamps', s); toast('Import complete 📥'); renderGallery(); renderChart();
+      // If first run (no stamps), show onboarding
+      getAll('stamps').then(list => { if (!list || list.length === 0) { byId('firstRunDialog')?.showModal(); } });
       } catch(e){ toast('Import failed: '+e.message); } evt.target.value=''; }
 
     // Gallery + Chart
@@ -580,13 +616,39 @@ function about(){ alert('Duck Stamp Vault\\nOffline-first PWA for tracking your 
       byId('chartSummary').textContent = `Cumulative spend ${USD.format(last.spend)} vs. estimated value ${USD.format(last.est)} (Δ ${USD.format(last.est - last.spend)})`;
     }
 
+    function addSampleStamp(){
+      const sample = {
+        id: crypto.randomUUID(),
+        addedAt: Date.now(),
+        year: 1959,
+        faceValue: 3.00,
+        price: 12.00,
+        estValue: 25.00,
+        purchaseDate: new Date().toISOString().slice(0,10),
+        condition: 'Mint',
+        signatureType: '',
+        acquisition: 'Dealer / Show',
+        artist: 'Maynard Reece',
+        species: 'King Eiders',
+        scott: 'RW26',
+        platePos: '',
+        notes: 'Sample entry. You can edit or delete me anytime.'
+      };
+      put('stamps', sample).then(()=>{ renderGallery(); renderChart();
+      // If first run (no stamps), show onboarding
+      getAll('stamps').then(list => { if (!list || list.length === 0) { byId('firstRunDialog')?.showModal(); } }); byId('firstRunDialog')?.close(); toast('Sample added ✅'); });
+    }
+
     // Buy Panel & Toast
     function openBuyPanel(){ byId('buyDialog').showModal(); }
     function toast(msg){ const t=byId('toast'); t.textContent=msg; t.style.display='block'; clearTimeout(t._to); t._to=setTimeout(()=> t.style.display='none', 2000); }
 
-    (async function init(){ await openDB(); await tryLoadExternalCatalog(); renderGallery(); renderChart(); const yInit = Number(byId('year')?.value); if (yInit) applyAutofillForYear(yInit);
+    (async function init(){ await openDB(); await tryLoadExternalCatalog(); renderGallery(); renderChart();
+      // If first run (no stamps), show onboarding
+      getAll('stamps').then(list => { if (!list || list.length === 0) { byId('firstRunDialog')?.showModal(); } }); const yInit = Number(byId('year')?.value); if (yInit) applyAutofillForYear(yInit);
 // Splash behavior
 const showSplash = localStorage.getItem('showSplash') !== 'false';
+if (localStorage.getItem('startOnMenu') === null) localStorage.setItem('startOnMenu','true');
 if (showSplash) {
   const s = byId('splash'); setTimeout(()=>{ s.style.opacity='0'; setTimeout(()=> s.style.display='none', 350); }, 900);
 } else { byId('splash').style.display='none'; }
@@ -596,6 +658,10 @@ byId('menuBtn')?.addEventListener('click', ()=> byId('menuDialog').showModal());
 if (matchMedia('(max-width: 820px)').matches && localStorage.getItem('startOnMenu') === 'true') {
   byId('menuDialog').showModal();
 }
+document.getElementById('yearNow').textContent = new Date().getFullYear();
+if (matchMedia('(max-width: 820px)').matches && localStorage.getItem('startOnMenu') === 'true') {
+  const h = document.getElementById('homeMenu'); if (h) { window.scrollTo({top: h.getBoundingClientRect().top + window.scrollY - 10, behavior: 'smooth'}); }
+}
 })();
   </script>
 
@@ -604,8 +670,12 @@ if (matchMedia('(max-width: 820px)').matches && localStorage.getItem('startOnMen
     (function(){
       const s = document.getElementById('splash');
       if (!s) return;
-      setTimeout(()=>{ s.style.opacity='0'; setTimeout(()=> s.style.display='none', 350); }, 1500);
-    })();
+      setTimeout(()=>{ s.style.opacity='0'; setTimeout(()=> s.style.display='none', 350); }, 1200);
+    document.getElementById('yearNow').textContent = new Date().getFullYear();
+if (matchMedia('(max-width: 820px)').matches && localStorage.getItem('startOnMenu') === 'true') {
+  const h = document.getElementById('homeMenu'); if (h) { window.scrollTo({top: h.getBoundingClientRect().top + window.scrollY - 10, behavior: 'smooth'}); }
+}
+})();
   </script>
 </body>
 </html>
