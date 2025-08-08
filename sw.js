@@ -1,5 +1,5 @@
 
-const CACHE = 'duck-stamp-scrapbook-v2';
+const CACHE = 'duck-stamp-scrapbook-v5';
 const ASSETS = [
   './',
   './index.html',
