@@ -1,5 +1,5 @@
 
-const CACHE = 'duck-stamp-vault-v6.1';
+const CACHE = 'duck-stamp-vault-v6.3';
 const ASSETS = [
   './',
   './index.html',
@@ -13,6 +13,7 @@ const ASSETS = [
   './manifest.webmanifest',
   './sw.js',
   './catalog.json',
+  './images-commons.json',
   './icons/icon-192.png',
   './icons/icon-512.png'
 ];

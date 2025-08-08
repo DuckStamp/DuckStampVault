@@ -19,7 +19,12 @@
   </div></div>
   <div class="app">
     <div class="app-header">
-  <div class="brand"><div class="logo">🦆</div><div class="title">Duck Stamp Vault</div><span class="chip">v6.1</span></div>
+  <a class="back-btn" href="./index.html">← Back</a>
+  <div class="spacer"></div>
+  <div class="brand"><div class="logo">🦆</div><div class="title">Duck Stamp Vault</div><span class="chip">v6.3</span></div>
+  <div class="spacer"></div>
+  <button class="icon-btn" onclick="toggleTheme()" title="Theme">🌗</button>
+</div><div class="title">Duck Stamp Vault</div><span class="chip">v6.1</span></div>
   <div class="spacer"></div>
   <a class="nav-btn" href="./index.html" title="Home">🏠</a>
   <a class="nav-btn" href="./collection.html" title="Collection">🗂️</a>
@@ -36,6 +41,7 @@
     <input type="file" id="img" accept="image/*" style="display:none">
     <div>Drag & drop image here or <button class="btn secondary" type="button" onclick="byId('img').click()">Choose</button></div>
     <div id="preview" class="preview"></div>
+      <div id="imageLinks" style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap"></div>
   </div>
 
   <div class="row cols-3" style="margin-top:8px">

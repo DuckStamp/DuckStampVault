@@ -1,4 +1,11 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body, button, input, select, textarea {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+
 /* ===== Design tokens ===== */
 :root {
   --bg: #0b0c0f; --surface: #0f1115; --card: #11151a; --card-2: #0d1014;
@@ -29,7 +36,7 @@ body{
 .chip{ display:inline-flex; gap:6px; align-items:center; padding:2px 8px; background: color-mix(in oklab, var(--accent) 18%, var(--card)); color:var(--text); border:1px solid color-mix(in oklab, var(--accent) 32%, var(--border)); border-radius: 999px; font-size:12px }
 
 /* Header & Footer */
-.app-header{ position:sticky; top:0; z-index:15; background: color-mix(in oklab, var(--surface) 85%, transparent); backdrop-filter: blur(10px); border:1px solid var(--border); border-radius: calc(var(--radius) + 6px); padding:10px 14px; margin-bottom:16px; display:flex; align-items:center; gap:10px }
+.app-header{ position:sticky;  position:sticky; top:0; z-index:15; background: color-mix(in oklab, var(--surface) 85%, transparent); backdrop-filter: blur(10px); border:1px solid var(--border); border-radius: calc(var(--radius) + 6px); padding:10px 14px; margin-bottom:16px; display:flex; align-items:center; gap:10px }
 .brand{ display:flex; align-items:center; gap:10px; padding:6px 10px; border-radius:12px; background: linear-gradient(180deg, color-mix(in oklab, var(--card) 80%, transparent), var(--card-2)); border:1px solid var(--border) }
 .brand .logo{ font-size:22px } .brand .title{ font-weight:700; letter-spacing:.2px }
 .spacer{ flex:1 }
@@ -66,3 +73,27 @@ canvas{ width:100%; height:180px; display:block; border-radius:12px; background:
 
 /* Splash */
 .splash{ position:fixed; inset:0; background:var(--bg); display:flex; align-items:center; justify-content:center; z-index:1000; transition:opacity .35s }
+
+
+/* Menu + Back button styles */
+.menu-btn, .back-btn {
+  background: #fff3b0;
+  color: #0b5c3a;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 2px solid #e6d88b;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-size: 16px;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s, transform 0.06s;
+}
+.menu-btn:hover, .back-btn:hover { background: #ffe87a; }
+.menu-btn:active, .back-btn:active { transform: scale(0.98); }

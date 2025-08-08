@@ -68,6 +68,43 @@ async function tryLoadExternalCatalog(){
   } catch {}
 }
 const scottFromYear = y => Number.isFinite(y) && y>=1934 ? `RW${y - 1933}` : '';
+
+// --- Wikimedia Commons image DB ---
+let IMG = new Map();
+async function tryLoadCommonsDB(){
+  try{
+    const res = await fetch('./images-commons.json', { cache: 'no-store' });
+    if (!res.ok) return;
+    const arr = await res.json();
+    if (Array.isArray(arr)){
+      for (const r of arr){
+        if (r && r.year) IMG.set(Number(r.year), r);
+      }
+    }
+  }catch(e){ /* ignore */ }
+}
+function applyImageForYear(y){
+  const rec = IMG.get(Number(y));
+  const preview = byId('preview');
+  const links = byId('imageLinks');
+  if (!preview) return;
+  preview.innerHTML = '';
+  if (!rec || !rec.image_url){
+    if (links) links.innerHTML = '';
+    return;
+  }
+  const img = new Image();
+  img.src = rec.image_url; img.alt = `Federal Duck Stamp ${y}`;
+  img.style.width = '240px'; img.style.height = 'auto'; img.style.borderRadius='10px'; img.style.border='1px solid var(--border)';
+  preview.appendChild(img);
+  if (links){
+    links.innerHTML = `
+      <a class="btn secondary" href="${rec.image_url}" download target="_blank" rel="noopener">Download Image</a>
+      <a class="btn secondary" href="${rec.page_url||'#'}" target="_blank" rel="noopener">View on Wikimedia Commons</a>
+    `;
+  }
+}
+
 function applyAutofillForYear(y){
   const toggle = byId('autoFillToggle'); if (toggle && !toggle.checked) return;
   const sc = scottFromYear(y); const scEl = byId('scott'); if (sc && scEl && !scEl.value) scEl.value = sc;
@@ -232,10 +269,10 @@ function wireDrop(){
 // Page bootstrap
 async function boot(page){
   document.getElementById('yearNow')?.replaceChildren(document.createTextNode(new Date().getFullYear()));
-  await openDB(); await tryLoadExternalCatalog();
+  await openDB(); await tryLoadExternalCatalog(); await tryLoadCommonsDB();
   if (page === 'collection'){ renderCollection(); }
   if (page === 'value'){ renderChart(); }
-  if (page === 'add'){ wireDrop(); const yearEl=byId('year'); yearEl?.addEventListener('change', e=> applyAutofillForYear(Number(e.target.value))); }
+  if (page === 'add'){ wireDrop(); const yearEl=byId('year'); yearEl?.addEventListener('change', e=> { const y=Number(e.target.value); applyAutofillForYear(y); applyImageForYear(y); }); }
   // Hide splash quickly
   const s = document.querySelector('.splash'); if (s){ setTimeout(()=>{ s.style.opacity='0'; setTimeout(()=> s.style.display='none', 350); }, 1100); }
 }

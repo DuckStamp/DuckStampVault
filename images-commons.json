@@ -1,0 +1,29 @@
+[
+  {
+    "year": 1934,
+    "artist": "J.N. \"Ding\" Darling",
+    "species": "Mallards",
+    "face": 1.0,
+    "scott": "RW1",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/1934_US_Federal_Duck_Stamp.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:1934_US_Federal_Duck_Stamp.jpg"
+  },
+  {
+    "year": 1935,
+    "artist": "Frank Benson",
+    "species": "Canada Geese (Canvasbacks on some sources)",
+    "face": 1.0,
+    "scott": "RW2",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c1/1935DuckStamp.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:1935DuckStamp.jpg"
+  },
+  {
+    "year": 1936,
+    "artist": "Richard Bishop",
+    "species": "Canada Geese",
+    "face": 1.0,
+    "scott": "RW3",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/80/1936DuckStamp.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:1936DuckStamp.jpg"
+  }
+]
