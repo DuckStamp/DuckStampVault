@@ -1,8 +1,15 @@
 
-const CACHE = 'duck-stamp-vault-v6';
+const CACHE = 'duck-stamp-vault-v6.1';
 const ASSETS = [
   './',
   './index.html',
+  './collection.html',
+  './add.html',
+  './value.html',
+  './buy.html',
+  './about.html',
+  './styles.css',
+  './app.js',
   './manifest.webmanifest',
   './sw.js',
   './catalog.json',

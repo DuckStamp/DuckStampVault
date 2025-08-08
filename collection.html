@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Duck Stamp Vault — Menu</title>
+  <title>Duck Stamp Vault — Collection</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#0b5c3a" />
@@ -30,28 +30,15 @@
 
     
 <section class="card">
-  <header style="display:flex; align-items:center; gap:12px; margin-bottom:10px">
-    <div style="font-size:26px">🦆</div><div style="font-weight:800; font-size:22px">Duck Stamp Vault</div><span class="chip">Main Menu</span>
-  </header>
-  <div class="totals" style="margin-top:-4px; margin-bottom:12px">Choose an option to get started.</div>
-  <div class="row cols-3" style="gap:14px">
-    <a class="btn" style="height:64px; font-size:17px; text-align:center" href="./collection.html">🗂️ View my Collection</a>
-    <a class="btn" style="height:64px; font-size:17px; text-align:center" href="./add.html">➕ Add a stamp</a>
-    <a class="btn" style="height:64px; font-size:17px; text-align:center" href="./value.html">💹 Value my Collection</a>
-  </div>
-  <div class="row cols-3" style="gap:14px; margin-top:12px">
-    <a class="btn secondary" style="height:56px; text-align:center" href="./buy.html">🛒 Buy a Federal Duck Stamp</a>
-    <a class="btn secondary" style="height:56px; text-align:center" href="./about.html">ℹ️ About Us</a>
-    <label class="btn secondary" style="height:56px; display:flex; align-items:center; justify-content:center; gap:8px; cursor:pointer">
-      ⬆️ Import JSON <input type="file" id="importFile" accept="application/json" style="display:none" onchange="importJSON(event)">
-    </label>
-  </div>
+  <h2>My Collection</h2>
+  <div id="collectionList"></div>
+  <div id="totals" class="totals"></div>
 </section>
 
     <div class="app-footer">© <span id="yearNow"></span> Duck Stamp Vault • PWA • Offline-ready • Not affiliated with USFWS/USPS/Amplex</div>
 
   </div>
   <script src="./app.js"></script>
-  <script>boot('menu');</script>
+  <script>boot('collection');</script>
 </body>
 </html>
