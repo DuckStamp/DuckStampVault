@@ -15,3 +15,5 @@ Static, offline-capable web app for tracking a collection of U.S. Federal Duck S
 - Offline-ready (`sw.js`)
 - Auto-fill Scott #, artist, species, and face value from `catalog.json`
 - Local-only storage (IndexedDB); export/import JSON
+
+**Catalog:** Includes face values for 1934–2025. Artist/species coming next build.

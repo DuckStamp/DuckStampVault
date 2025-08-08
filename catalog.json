@@ -1,26 +1,554 @@
 [
   {
     "year": 1934,
-    "artist": "J.N. \"Ding\" Darling",
-    "species": "Mallards",
+    "artist": "",
+    "species": "",
     "face": 1.0
   },
   {
+    "year": 1935,
+    "artist": "",
+    "species": "",
+    "face": 1.0
+  },
+  {
+    "year": 1936,
+    "artist": "",
+    "species": "",
+    "face": 1.0
+  },
+  {
+    "year": 1937,
+    "artist": "",
+    "species": "",
+    "face": 1.0
+  },
+  {
+    "year": 1938,
+    "artist": "",
+    "species": "",
+    "face": 1.0
+  },
+  {
+    "year": 1939,
+    "artist": "",
+    "species": "",
+    "face": 1.0
+  },
+  {
+    "year": 1940,
+    "artist": "",
+    "species": "",
+    "face": 1.0
+  },
+  {
+    "year": 1941,
+    "artist": "",
+    "species": "",
+    "face": 1.0
+  },
+  {
+    "year": 1942,
+    "artist": "",
+    "species": "",
+    "face": 1.0
+  },
+  {
+    "year": 1943,
+    "artist": "",
+    "species": "",
+    "face": 1.0
+  },
+  {
+    "year": 1944,
+    "artist": "",
+    "species": "",
+    "face": 1.0
+  },
+  {
+    "year": 1945,
+    "artist": "",
+    "species": "",
+    "face": 1.0
+  },
+  {
+    "year": 1946,
+    "artist": "",
+    "species": "",
+    "face": 1.0
+  },
+  {
+    "year": 1947,
+    "artist": "",
+    "species": "",
+    "face": 1.0
+  },
+  {
+    "year": 1948,
+    "artist": "",
+    "species": "",
+    "face": 1.0
+  },
+  {
+    "year": 1949,
+    "artist": "",
+    "species": "",
+    "face": 2.0
+  },
+  {
+    "year": 1950,
+    "artist": "",
+    "species": "",
+    "face": 2.0
+  },
+  {
+    "year": 1951,
+    "artist": "",
+    "species": "",
+    "face": 2.0
+  },
+  {
+    "year": 1952,
+    "artist": "",
+    "species": "",
+    "face": 2.0
+  },
+  {
+    "year": 1953,
+    "artist": "",
+    "species": "",
+    "face": 2.0
+  },
+  {
+    "year": 1954,
+    "artist": "",
+    "species": "",
+    "face": 2.0
+  },
+  {
+    "year": 1955,
+    "artist": "",
+    "species": "",
+    "face": 2.0
+  },
+  {
+    "year": 1956,
+    "artist": "",
+    "species": "",
+    "face": 2.0
+  },
+  {
+    "year": 1957,
+    "artist": "",
+    "species": "",
+    "face": 2.0
+  },
+  {
+    "year": 1958,
+    "artist": "",
+    "species": "",
+    "face": 2.0
+  },
+  {
     "year": 1959,
-    "artist": "Maynard Reece",
-    "species": "King Eiders",
+    "artist": "",
+    "species": "",
     "face": 3.0
   },
   {
+    "year": 1960,
+    "artist": "",
+    "species": "",
+    "face": 3.0
+  },
+  {
+    "year": 1961,
+    "artist": "",
+    "species": "",
+    "face": 3.0
+  },
+  {
+    "year": 1962,
+    "artist": "",
+    "species": "",
+    "face": 3.0
+  },
+  {
+    "year": 1963,
+    "artist": "",
+    "species": "",
+    "face": 3.0
+  },
+  {
+    "year": 1964,
+    "artist": "",
+    "species": "",
+    "face": 3.0
+  },
+  {
+    "year": 1965,
+    "artist": "",
+    "species": "",
+    "face": 3.0
+  },
+  {
+    "year": 1966,
+    "artist": "",
+    "species": "",
+    "face": 3.0
+  },
+  {
+    "year": 1967,
+    "artist": "",
+    "species": "",
+    "face": 3.0
+  },
+  {
+    "year": 1968,
+    "artist": "",
+    "species": "",
+    "face": 3.0
+  },
+  {
+    "year": 1969,
+    "artist": "",
+    "species": "",
+    "face": 3.0
+  },
+  {
+    "year": 1970,
+    "artist": "",
+    "species": "",
+    "face": 3.0
+  },
+  {
+    "year": 1971,
+    "artist": "",
+    "species": "",
+    "face": 3.0
+  },
+  {
+    "year": 1972,
+    "artist": "",
+    "species": "",
+    "face": 5.0
+  },
+  {
+    "year": 1973,
+    "artist": "",
+    "species": "",
+    "face": 5.0
+  },
+  {
+    "year": 1974,
+    "artist": "",
+    "species": "",
+    "face": 5.0
+  },
+  {
+    "year": 1975,
+    "artist": "",
+    "species": "",
+    "face": 5.0
+  },
+  {
+    "year": 1976,
+    "artist": "",
+    "species": "",
+    "face": 5.0
+  },
+  {
+    "year": 1977,
+    "artist": "",
+    "species": "",
+    "face": 5.0
+  },
+  {
+    "year": 1978,
+    "artist": "",
+    "species": "",
+    "face": 5.0
+  },
+  {
+    "year": 1979,
+    "artist": "",
+    "species": "",
+    "face": 7.5
+  },
+  {
+    "year": 1980,
+    "artist": "",
+    "species": "",
+    "face": 7.5
+  },
+  {
+    "year": 1981,
+    "artist": "",
+    "species": "",
+    "face": 7.5
+  },
+  {
+    "year": 1982,
+    "artist": "",
+    "species": "",
+    "face": 7.5
+  },
+  {
+    "year": 1983,
+    "artist": "",
+    "species": "",
+    "face": 7.5
+  },
+  {
+    "year": 1984,
+    "artist": "",
+    "species": "",
+    "face": 7.5
+  },
+  {
+    "year": 1985,
+    "artist": "",
+    "species": "",
+    "face": 7.5
+  },
+  {
+    "year": 1986,
+    "artist": "",
+    "species": "",
+    "face": 7.5
+  },
+  {
+    "year": 1987,
+    "artist": "",
+    "species": "",
+    "face": 10.0
+  },
+  {
+    "year": 1988,
+    "artist": "",
+    "species": "",
+    "face": 10.0
+  },
+  {
+    "year": 1989,
+    "artist": "",
+    "species": "",
+    "face": 12.5
+  },
+  {
+    "year": 1990,
+    "artist": "",
+    "species": "",
+    "face": 12.5
+  },
+  {
     "year": 1991,
-    "artist": "Robert Steiner",
-    "species": "Snow Geese",
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 1992,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 1993,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 1994,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 1995,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 1996,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 1997,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 1998,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 1999,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 2000,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 2001,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 2002,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 2003,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 2004,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 2005,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 2006,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 2007,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 2008,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 2009,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 2010,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 2011,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 2012,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 2013,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 2014,
+    "artist": "",
+    "species": "",
+    "face": 15.0
+  },
+  {
+    "year": 2015,
+    "artist": "",
+    "species": "",
+    "face": 25.0
+  },
+  {
+    "year": 2016,
+    "artist": "",
+    "species": "",
+    "face": 25.0
+  },
+  {
+    "year": 2017,
+    "artist": "",
+    "species": "",
+    "face": 25.0
+  },
+  {
+    "year": 2018,
+    "artist": "",
+    "species": "",
+    "face": 25.0
+  },
+  {
+    "year": 2019,
+    "artist": "",
+    "species": "",
     "face": 25.0
   },
   {
     "year": 2020,
-    "artist": "James Hautman",
-    "species": "Black-bellied Whistling-Ducks",
+    "artist": "",
+    "species": "",
+    "face": 25.0
+  },
+  {
+    "year": 2021,
+    "artist": "",
+    "species": "",
+    "face": 25.0
+  },
+  {
+    "year": 2022,
+    "artist": "",
+    "species": "",
+    "face": 25.0
+  },
+  {
+    "year": 2023,
+    "artist": "",
+    "species": "",
+    "face": 25.0
+  },
+  {
+    "year": 2024,
+    "artist": "",
+    "species": "",
+    "face": 25.0
+  },
+  {
+    "year": 2025,
+    "artist": "",
+    "species": "",
     "face": 25.0
   }
 ]
