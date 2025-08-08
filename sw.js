@@ -1,5 +1,5 @@
 
-const CACHE = 'duck-stamp-vault-v5.0.1';
+const CACHE = 'duck-stamp-vault-v5.1';
 const ASSETS = [
   './',
   './index.html',
